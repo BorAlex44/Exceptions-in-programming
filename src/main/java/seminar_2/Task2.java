@@ -13,7 +13,7 @@ public class Task2 {
             int d = 0;
             double catchedRes1 = intArray[10] / d;
             System.out.println("catchedRes1 = " + catchedRes1);
-        } catch (ArrayIndexOutOfBoundsException e){
+        } catch (IndexOutOfBoundsException e){
             System.out.println("Нет такого индекса в массиве" + e);
         } catch (ArithmeticException e) {
             System.out.println("Catching exception: " + e);
