@@ -37,9 +37,24 @@ public class ParsingData {
                     dataDict.put("birthday", elem);
                 }
                 
-            } else if () {
-                
+            } else if (elem.matches("[0-9]+")) {
+                dataDict.put("telephone", elem);
+            } else if (elem.matches("[А-ЯЁа-яё]+")) {
+                sb.append(elem).append(" ");
+            }else {
+                try {
+                    throw new DataException();
+                }catch (DataException e) {
+                    e.dataException(elem);
+                }
             }
         }
+        String[] fullName = String.valueOf(sb).split(" ");
+        if (fullName.length == 3) {
+            dataDict.put("firstname", fullName[1]);
+            dataDict.put("lastname", fullName[0]);
+            dataDict.put("surname", fullName[2]);
+        }
+        return dataDict;
     }
 }
